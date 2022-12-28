@@ -2,7 +2,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { carService } from "../services/CarService";
 import { CarDetail } from "../components/CarDetail.component";
-// const cars = carService.getAll();
 
 export const AppCar = () => {
   const [carList, setCarList] = useState([]);
