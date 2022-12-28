@@ -7,27 +7,15 @@ export const AppCarAdd = () => {
     model: "",
     year: "",
     maxSpeed: "",
-    isAutomatic: "",
+    isAutomatic: false,
     engine: "",
     numberOfDoors: "",
   });
+
   const handleAdd = async (e) => {
     e.preventDefault();
-    if (
-      newCar.brand &&
-      newCar.model &&
-      newCar.year &&
-      newCar.maxSpeed &&
-      newCar.isAutomatic &&
-      newCar.engine &&
-      newCar.numberOfDoors
-    ) {
-      const createdCar = {
-        ...newCar,
-        id: Math.floor(Math.random() * 100),
-      };
-      setNewCar(createdCar);
-    }
+    await carService.createCar(newCar);
+    setNewCar(newCar);
   };
   const resetForm = () => {
     setNewCar("");
@@ -38,13 +26,9 @@ export const AppCarAdd = () => {
         " " +
         newCar.model +
         " " +
-        newCar.year +
-        " " +
         newCar.maxSpeed +
         " " +
-        newCar.numberOfDoors +
-        " " +
-        newCar.engine
+        newCar.numberOfDoors
     );
   };
   return (
@@ -117,42 +101,45 @@ export const AppCarAdd = () => {
         <br />
         <label>engine: </label>
         <br />
-        <input
-          type="radio"
-          required
-          value={newCar.engine || ""}
-          onChange={(e) => {
-            setNewCar({ ...newCar, engine: e.target.value });
-          }}
-        />
         <label>diesel</label>
         <input
           type="radio"
           required
-          value={newCar.engine || ""}
+          value="diesel"
           onChange={(e) => {
             setNewCar({ ...newCar, engine: e.target.value });
           }}
         />
+        <br />
         <label>petrol</label>
         <input
           type="radio"
           required
-          value={newCar.engine || ""}
+          value="petrol"
           onChange={(e) => {
             setNewCar({ ...newCar, engine: e.target.value });
           }}
         />
+        <br />
         <label>electric</label>
         <input
           type="radio"
           required
-          value={newCar.engine || ""}
+          value="electric"
           onChange={(e) => {
             setNewCar({ ...newCar, engine: e.target.value });
           }}
         />
+        <br />
         <label>hybrid</label>
+        <input
+          type="radio"
+          required
+          value="hybrid"
+          onChange={(e) => {
+            setNewCar({ ...newCar, engine: e.target.value });
+          }}
+        />
         <br />
         <br />
         <button type="submit" onClick={handleAdd}>
