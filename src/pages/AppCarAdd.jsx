@@ -28,12 +28,9 @@ export const AppCarAdd = () => {
       };
       setNewCar(createdCar);
     }
-    const addCar = () => {
-      carService.addCar();
-    };
-    // const resetForm = () => {
-    //   setNewCar("");
-    // };
+  };
+  const resetForm = () => {
+    setNewCar("");
   };
   return (
     <div>
@@ -134,14 +131,14 @@ export const AppCarAdd = () => {
         <label>hybrid</label>
         <br />
         <br />
-        <button type="submit" onClick={addCar}>
+        <button type="submit" onClick={handleAdd}>
           Submit
         </button>
         <br />
         <br />
-        {/* <div>
-          <input type="button" value="Reset Form" onClick={() => resetForm()} />
-        </div> */}
+        <button type="reset" value="Reset" onClick={() => resetForm()}>
+          Reset
+        </button>
       </form>
     </div>
   );
