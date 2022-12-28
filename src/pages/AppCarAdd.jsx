@@ -32,6 +32,21 @@ export const AppCarAdd = () => {
   const resetForm = () => {
     setNewCar("");
   };
+  const handleClick = () => {
+    alert(
+      newCar.brand +
+        " " +
+        newCar.model +
+        " " +
+        newCar.year +
+        " " +
+        newCar.maxSpeed +
+        " " +
+        newCar.numberOfDoors +
+        " " +
+        newCar.engine
+    );
+  };
   return (
     <div>
       <form onSubmit={handleAdd}>
@@ -148,6 +163,9 @@ export const AppCarAdd = () => {
         <button type="reset" value="Reset" onClick={() => resetForm()}>
           Reset
         </button>
+        <br />
+        <br />
+        <button onClick={handleClick}>Preview</button>
       </form>
     </div>
   );
