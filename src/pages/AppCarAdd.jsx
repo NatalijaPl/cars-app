@@ -39,6 +39,8 @@ export const AppCarAdd = () => {
           brand:
           <input
             type="text"
+            minLength={2}
+            required
             value={newCar.brand}
             onChange={(e) => {
               setNewCar({ ...newCar, brand: e.target.value });
@@ -51,6 +53,8 @@ export const AppCarAdd = () => {
           model:
           <input
             type="text"
+            minLength={2}
+            required
             value={newCar.model}
             onChange={(e) => {
               setNewCar({ ...newCar, model: e.target.value });
@@ -63,7 +67,7 @@ export const AppCarAdd = () => {
           year:
           <select name="years" id="years">
             {[...new Array(29)].map((el, index) => (
-              <option value={index + 1990} key={index}>
+              <option required value={index + 1990} key={index}>
                 {index + 1990}
               </option>
             ))}
@@ -87,6 +91,7 @@ export const AppCarAdd = () => {
           numberOfDoors:
           <input
             type="number"
+            required
             value={newCar.numberOfDoors}
             onChange={(e) => {
               setNewCar({ ...newCar, numberOfDoors: e.target.value });
@@ -99,6 +104,7 @@ export const AppCarAdd = () => {
         <br />
         <input
           type="radio"
+          required
           value={newCar.engine}
           onChange={(e) => {
             setNewCar({ ...newCar, engine: e.target.value });
@@ -107,6 +113,7 @@ export const AppCarAdd = () => {
         <label>diesel</label>
         <input
           type="radio"
+          required
           value={newCar.engine}
           onChange={(e) => {
             setNewCar({ ...newCar, engine: e.target.value });
@@ -115,6 +122,7 @@ export const AppCarAdd = () => {
         <label>petrol</label>
         <input
           type="radio"
+          required
           value={newCar.engine}
           onChange={(e) => {
             setNewCar({ ...newCar, engine: e.target.value });
@@ -123,6 +131,7 @@ export const AppCarAdd = () => {
         <label>electric</label>
         <input
           type="radio"
+          required
           value={newCar.engine}
           onChange={(e) => {
             setNewCar({ ...newCar, engine: e.target.value });
