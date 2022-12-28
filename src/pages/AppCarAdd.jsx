@@ -41,7 +41,7 @@ export const AppCarAdd = () => {
             type="text"
             minLength={2}
             required
-            value={newCar.brand}
+            value={newCar.brand || ""}
             onChange={(e) => {
               setNewCar({ ...newCar, brand: e.target.value });
             }}
@@ -55,7 +55,7 @@ export const AppCarAdd = () => {
             type="text"
             minLength={2}
             required
-            value={newCar.model}
+            value={newCar.model || ""}
             onChange={(e) => {
               setNewCar({ ...newCar, model: e.target.value });
             }}
@@ -79,7 +79,7 @@ export const AppCarAdd = () => {
           maxSpeed:
           <input
             type="number"
-            value={newCar.maxSpeed}
+            value={newCar.maxSpeed || ""}
             onChange={(e) => {
               setNewCar({ ...newCar, maxSpeed: e.target.value });
             }}
@@ -92,7 +92,7 @@ export const AppCarAdd = () => {
           <input
             type="number"
             required
-            value={newCar.numberOfDoors}
+            value={newCar.numberOfDoors || ""}
             onChange={(e) => {
               setNewCar({ ...newCar, numberOfDoors: e.target.value });
             }}
@@ -105,7 +105,7 @@ export const AppCarAdd = () => {
         <input
           type="radio"
           required
-          value={newCar.engine}
+          value={newCar.engine || ""}
           onChange={(e) => {
             setNewCar({ ...newCar, engine: e.target.value });
           }}
@@ -114,7 +114,7 @@ export const AppCarAdd = () => {
         <input
           type="radio"
           required
-          value={newCar.engine}
+          value={newCar.engine || ""}
           onChange={(e) => {
             setNewCar({ ...newCar, engine: e.target.value });
           }}
@@ -123,7 +123,7 @@ export const AppCarAdd = () => {
         <input
           type="radio"
           required
-          value={newCar.engine}
+          value={newCar.engine || ""}
           onChange={(e) => {
             setNewCar({ ...newCar, engine: e.target.value });
           }}
@@ -132,7 +132,7 @@ export const AppCarAdd = () => {
         <input
           type="radio"
           required
-          value={newCar.engine}
+          value={newCar.engine || ""}
           onChange={(e) => {
             setNewCar({ ...newCar, engine: e.target.value });
           }}
