@@ -19,10 +19,13 @@ function App() {
           </ul>
         </nav>
         <Switch>
-          <Route path="/cars">
+          <Route exact path="/cars">
             <AppCar />
           </Route>
           <Route path="/add">
+            <AppCarAdd />
+          </Route>
+          <Route path="/edit/:id">
             <AppCarAdd />
           </Route>
         </Switch>

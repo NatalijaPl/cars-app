@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { carService } from "../services/CarService";
 
 export const AppCarAdd = () => {
@@ -12,11 +14,27 @@ export const AppCarAdd = () => {
     numberOfDoors: "",
   });
 
+  const history = useHistory();
+  const { id } = useParams();
+
   const handleAdd = async (e) => {
     e.preventDefault();
-    await carService.createCar(newCar);
-    setNewCar(newCar);
+    let data = null;
+
+    if (id) {
+      data = await carService.edit(id, newCar);
+    } else {
+      data = await carService.add(newCar);
+    }
+
+    if (!data) {
+      alert("The new car is not created");
+      return;
+    }
+
+    history.push("/cars");
   };
+
   const resetForm = () => {
     setNewCar("");
   };
@@ -33,6 +51,7 @@ export const AppCarAdd = () => {
   };
   return (
     <div>
+      <p>{id ? "Edit" : "Add new"} </p>
       <form onSubmit={handleAdd}>
         <label>
           brand:
@@ -142,9 +161,7 @@ export const AppCarAdd = () => {
         />
         <br />
         <br />
-        <button type="submit" onClick={handleAdd}>
-          Submit
-        </button>
+        <button>{id ? "Edit" : "Add"}</button>
         <br />
         <br />
         <button type="reset" value="Reset" onClick={() => resetForm()}>

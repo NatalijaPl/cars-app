@@ -15,6 +15,13 @@ export const AppCar = () => {
     handleGetCars();
   }, []);
 
+  const handleDelete = async (id) => {
+    const data = await carService.delete(id);
+    if (data.count) {
+      setCarList(carList.filter((post) => post.id !== id));
+    }
+  };
+
   return (
     <div>
       <p>Car information: </p>
@@ -31,6 +38,7 @@ export const AppCar = () => {
               engine={car.engine}
               numberOfDoors={car.numberOfDoors}
             />
+            <button onClick={() => handleDelete(car.id)}>Delete</button>
           </li>
         ))}
       </ul>
